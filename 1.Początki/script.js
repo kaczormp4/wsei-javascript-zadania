@@ -17,4 +17,4 @@ console.log("Hello World);
 // wyświetla Syntax error - brak znaku "
 
 
-//Bartłomiej Kaczmarczyk 12280
+//Bartłomiej Kaczmarczyk 122801
