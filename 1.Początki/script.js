@@ -1,7 +1,6 @@
 //zad 1
 console.log("Bartłomiej");
 
-
 //zad 2
 console.log(`12 + 32 = ${12 + 32}`);
 console.log(`52 / 16 = ${52 / 16}`);
