@@ -6,6 +6,7 @@ console.log(`12 + 32 = ${12 + 32}`);
 console.log(`52 / 16 = ${52 / 16}`);
 console.log(`5 * 2 = ${5 * 2}`);
 
+
 //zad 3
 console.log("Hello World");
 //wyświetla string "Hello World"
