@@ -26,4 +26,5 @@ let test;
 console.log(test);
 //wypisało undefined gdyż zmienna istnieje ale nic nie zawiera
 
+
 //Bartłomiej Kaczmarczyk 12280
