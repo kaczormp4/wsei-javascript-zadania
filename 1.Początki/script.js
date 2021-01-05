@@ -16,4 +16,5 @@ console.log(Hello World);
 console.log("Hello World);
 // wyświetla Syntax error - brak znaku "
 
+
 //Bartłomiej Kaczmarczyk 12280
