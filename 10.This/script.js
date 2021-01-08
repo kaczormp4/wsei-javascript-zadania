@@ -115,7 +115,6 @@ console.log(calc2.dzielenie());
 
 
 
-
 //zad 4.
 
 function Constructor(){
