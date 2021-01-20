@@ -219,4 +219,107 @@ function render(){
     }
 }
 
-//zad 9
+//zad 9 /////////////////////////////////////////////////////////////////
+
+var form = document.createElement("div");
+// inputy
+var name1 = document.createElement("input");
+name1.setAttribute("id","name1");
+var surname = document.createElement("input");
+surname.setAttribute("id","surname");
+var age = document.createElement("input");
+age.setAttribute("id","age");
+var children = document.createElement("input");
+children.setAttribute("id","children");
+// przyciski
+var more = document.createElement("button");
+more.setAttribute("onclick","moreData();");
+more.innerText="WIĘCEJ";
+
+var create = document.createElement("button");
+create.setAttribute("onclick","createTable();");
+create.innerText="UTWÓRZ";
+// render
+document.body.appendChild(form);
+form.appendChild(name1);
+form.appendChild(surname);
+form.appendChild(age);
+form.appendChild(children);
+form.appendChild(more);
+form.appendChild(create);
+
+var persons = [];
+function moreData(){
+    var personData = {
+        name1 : name1,
+        surname : surname,
+        age : age,
+        children : children
+    };
+    var name1 = document.querySelector("#name1").value;
+    var surname = document.querySelector("#surname").value;
+    var age = document.querySelector("#age").value;
+    var children = document.querySelector("#children").value;
+    personData.name1=name1;
+    personData.surname=surname;
+    personData.age=age;
+    personData.children=children;
+    persons.push(personData)
+    console.dir(persons)
+
+    
+}
+function createTable(){
+    var tableTable = document.createElement("TABLE");
+    tableTable.setAttribute("id", `tableId`);
+    for(var i = 0; i < persons.length ; i++){
+        
+        var tableTr = document.createElement("TR");
+        tableTr.setAttribute("id", `tableTrNumber${i}`);
+        var tableTd1 = document.createElement("TD");   
+        var tableTd2 = document.createElement("TD");   
+        var tableTd3 = document.createElement("TD");   
+        var tableTd4 = document.createElement("TD");   
+        var tableTd5 = document.createElement("TD");   
+        tableTd1.setAttribute("id", "tableTd");
+        document.body.appendChild(tableTable)
+        
+        tableTable.appendChild(tableTr);
+        tableTr.appendChild(tableTd1);
+        tableTr.appendChild(tableTd2);
+        tableTr.appendChild(tableTd3);
+        tableTr.appendChild(tableTd4);
+        tableTr.appendChild(tableTd5);
+
+    
+        var nameInTable = document.createTextNode(persons[i].name1);
+        var surnameInTable = document.createTextNode(persons[i].surname);
+        var ageInTable = document.createTextNode(persons[i].age);
+        var childrenInTable = document.createTextNode(persons[i].children);
+        tableTd1.appendChild(nameInTable);
+        tableTd2.appendChild(surnameInTable);
+        tableTd3.appendChild(ageInTable);
+        tableTd4.appendChild(childrenInTable);
+
+        var buttonRemove = document.createElement("button"); 
+        buttonRemove.innerText = "REMOVE";
+        buttonRemove.setAttribute("onclick",`removeLine(tableTrNumber${i},tableId);`)
+        tableTd5.appendChild(buttonRemove);
+    }
+
+
+}  
+
+function removeLine(param, param2){
+    var deleteLine = document.querySelector(`#${param.id}`);
+    var deleteTable = document.querySelector(`#${param2.id}`);
+    console.dir(deleteLine.parentElement.children.length)
+
+    if(deleteLine.parentElement.children.length == 1){
+        deleteTable.remove(param2.id)
+    }
+    deleteLine.remove(param.id)
+
+}
+
+//zad 10 ///////////////////////////////////////////////////////
