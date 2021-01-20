@@ -149,3 +149,74 @@ button2.addEventListener("click", e => {
     }
 })
 ///////////////////////////////////////////////////////
+
+//zad8
+var form = document.createElement("div");
+//zamiast div było form, lecz przycisk wyswietlal 
+// się przez 1 s i znikał dlatego jest DIV
+
+var input1 = document.createElement("input");
+input1.setAttribute("id","elem")
+var input2 = document.createElement("input");
+input2.setAttribute("id","text")
+var input3 = document.createElement("input");
+input3.setAttribute("id","color")
+var input4 = document.createElement("input");
+input4.setAttribute("id","repeat")
+var submit = document.createElement("button");
+submit.setAttribute("onclick","create();")
+submit.innerText="SUBMIT";
+document.body.appendChild(form);
+
+form.appendChild(input1)
+form.appendChild(input2)
+form.appendChild(input3)
+form.appendChild(input4)
+form.appendChild(submit)
+
+var zero = 0
+function create(){
+    zero++;
+    if(zero > 1 ){
+        var divDownForm = document.querySelector("#divDownForm");
+        divDownForm.remove(divDownForm);
+        zero = 0
+        render();
+        
+    } 
+    else{
+        var divDownForm = document.querySelector("#divDownForm");
+        if(divDownForm == null){
+            render();
+        }else{
+            divDownForm.remove(divDownForm);
+            render();
+        }
+        
+    }    
+    
+
+}
+function render(){
+    var divDownForm = document.createElement("div");
+    divDownForm.setAttribute("id","divDownForm")
+    document.body.appendChild(divDownForm);
+    
+    var input1Value = document.querySelector("#elem").value;
+    var input2Value = document.querySelector("#text").value;
+    var input3Value = document.querySelector("#color").value;
+    var input4Value = document.querySelector("#repeat").value;
+
+    if(input1Value && input2Value && input3Value && input4Value !== ""){      
+        for(var i = 0 ; i < parseInt(input4Value); i++){
+            var newElement = document.createElement(`${input1Value}`);
+            newElement.innerText=`${input2Value}`;
+            newElement.style.color = `${input3Value}`;
+            divDownForm.appendChild(newElement)
+        }
+    }else{
+        alert("fill form");
+    }
+}
+
+//zad 9
