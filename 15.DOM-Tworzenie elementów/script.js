@@ -323,3 +323,146 @@ function removeLine(param, param2){
 }
 
 //zad 10 ///////////////////////////////////////////////////////
+
+var form = document.createElement("div");
+// inputy
+var name1 = document.createElement("input");
+name1.setAttribute("id","name1");
+var surname = document.createElement("input");
+surname.setAttribute("id","surname");
+var age = document.createElement("input");
+age.setAttribute("id","age");
+var children = document.createElement("input");
+children.setAttribute("id","children");
+// przyciski
+var more = document.createElement("button");
+more.setAttribute("onclick","moreData();");
+more.innerText="WIĘCEJ";
+
+var create = document.createElement("button");
+create.setAttribute("onclick","createTable();");
+create.innerText="UTWÓRZ";
+// render
+document.body.appendChild(form);
+form.appendChild(name1);
+form.appendChild(surname);
+form.appendChild(age);
+form.appendChild(children);
+form.appendChild(more);
+form.appendChild(create);
+
+var persons = [];
+function moreData(){
+    var personData = {
+        name1 : name1,
+        surname : surname,
+        age : age,
+        children : children
+    };
+    var name1 = document.querySelector("#name1").value;
+    var surname = document.querySelector("#surname").value;
+    var age = document.querySelector("#age").value;
+    var children = document.querySelector("#children").value;
+
+    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    //UZYTA FUNKCJA BIG LETTER Z ZAD 10  //
+    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    personData.name1=bigLetter(name1);
+    personData.surname=bigLetter(surname);
+    personData.age=bigLetter(age);
+    personData.children=bigLetter(children);
+    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    //UZYTA FUNKCJA BIG LETTER Z ZAD 10  //
+    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    persons.push(personData)
+    console.dir(persons)
+
+    
+}
+function createTable(){
+    var tableTable = document.createElement("TABLE");
+    tableTable.setAttribute("id", `tableId`);
+    for(var i = 0; i < persons.length ; i++){
+        
+        var tableTr = document.createElement("TR");
+        tableTr.setAttribute("id", `tableTrNumber${i}`);
+        var tableTd1 = document.createElement("TD");   
+        var tableTd2 = document.createElement("TD");   
+        var tableTd3 = document.createElement("TD");   
+        var tableTd4 = document.createElement("TD");   
+        var tableTd5 = document.createElement("TD");   
+        tableTd1.setAttribute("id", "tableTd");
+        document.body.appendChild(tableTable)
+        
+        tableTable.appendChild(tableTr);
+        tableTr.appendChild(tableTd1);
+        tableTr.appendChild(tableTd2);
+        tableTr.appendChild(tableTd3);
+        tableTr.appendChild(tableTd4);
+        tableTr.appendChild(tableTd5);
+
+    
+        var nameInTable = document.createTextNode(persons[i].name1);
+        var surnameInTable = document.createTextNode(persons[i].surname);
+        var ageInTable = document.createTextNode(persons[i].age);
+        var childrenInTable = document.createTextNode(persons[i].children);
+        tableTd1.appendChild(nameInTable);
+        tableTd2.appendChild(surnameInTable);
+        tableTd3.appendChild(ageInTable);
+        tableTd4.appendChild(childrenInTable);
+
+        var buttonRemove = document.createElement("button"); 
+        buttonRemove.innerText = "REMOVE";
+        buttonRemove.setAttribute("onclick",`removeLine(tableTrNumber${i},tableId);`)
+        tableTd5.appendChild(buttonRemove);
+    }
+
+
+}  
+
+function removeLine(param, param2){
+    var deleteLine = document.querySelector(`#${param.id}`);
+    var deleteTable = document.querySelector(`#${param2.id}`);
+    console.dir(deleteLine.parentElement.children.length)
+
+    if(deleteLine.parentElement.children.length == 1){
+        deleteTable.remove(param2.id)
+    }
+    deleteLine.remove(param.id)
+
+}
+//funkcja uzyta u gory
+function bigLetter(param){
+    if (typeof param == "string") 
+    return param[0].toUpperCase() + param.slice(1);
+}
+
+//zad 11 //////////////////////////////////////////////////////////////////////////////////
+function checkString(string){
+    var tab  = [];
+    var numbers  = [];
+    var numbers2  = [];
+    var sum = 0;
+    var iloczyn = 1;
+    tab.push(string);
+    for(var i = 0 ; i < tab[0].length ; i++){       
+        numbers.push(parseInt(tab[0][i]));
+        if(numbers[i]*1 == numbers[i]){
+            numbers2.push(numbers[i])
+            sum += numbers[i];
+            iloczyn *= numbers[i];
+        }
+        
+    }
+    for(var j = 0; j < iloczyn ; j++){
+        let div = document.createElement('div')
+        document.body.appendChild(div)
+        div.innerText = tab[0]
+    }
+    console.log(`Liczby : ${numbers2}`)
+    console.log(`Suma liczb : ${sum}`)
+}
+
+checkString("liczby1234");
+
+//zad 12 //////////////////////////////////////////////////////////////////////////////////
