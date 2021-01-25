@@ -466,3 +466,65 @@ function checkString(string){
 checkString("liczby1234");
 
 //zad 12 //////////////////////////////////////////////////////////////////////////////////
+
+function checkString(string){
+    let textObjct = {
+        text : string,
+        textChange : function(txt){
+            this.text = txt.replace('Ala', 'Ola');
+        }
+
+    }
+
+    const words = string.split(' ');
+
+    for(var i = 0 ; i < words.length ;i++ ){
+        if(words[i] == "Ala"){
+            textObjct.textChange(string)
+            return textObjct.text
+        }
+        else{
+            textObjct.text = "Słowo 'Ala' nie występuje w tekście";
+        }
+    }
+    var div = document.createElement('div');
+    document.body.appendChild(div);
+    div.innerText = textObjct.text
+
+
+   
+}
+
+console.log(checkString("Asla ma kota"))
+
+//zad 13 /////////////////////////////////////////////////////////////////////////
+function letters(param){
+    var newTab = [];
+    param.forEach((e) => {
+        newTab.push(e.length)
+    });
+  //console.log(newTab)
+    return newTab;
+}
+
+function sum(param){
+    var sumTab = 0;
+    for(var i = 0 ; i < param.length ; i++){
+        sumTab+=param[i];
+    }
+    return sumTab
+}
+
+function average(param){
+    var sumTab = 0;
+    for(var i = 0 ; i < param.length ; i++){
+        sumTab+=param[i];
+    }
+    return sumTab/param.length
+}
+
+var data = ["jan","pan",'mleko','auto'];
+var resulst = letters(data);
+console.log(resulst);
+console.log(sum(resulst));
+console.log(average(resulst));

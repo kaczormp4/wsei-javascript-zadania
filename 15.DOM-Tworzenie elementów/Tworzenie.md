@@ -23,12 +23,12 @@ Na podstawie losowej liczby utwórz odpowiednią ilość divów z tekstem: "to j
 Na podstawie obiektu stwórz struktórę w html
 
 {
-    div1: 'to jest div',
-    span1: 'to jest span',
-    div2: {
-        div3: 'to jest div',
-    },
-    span2: 'to jest span',
+div1: 'to jest div',
+span1: 'to jest span',
+div2: {
+div3: 'to jest div',
+},
+span2: 'to jest span',
 }
 
 #### Zadanie 7
@@ -50,10 +50,9 @@ Stwórz formularz do którego będzie można wpisać dane tabelarczne takie jak:
 
 Formularz powinien mieć możliwość dodawania kilku takich pozycji po kliknięciu na button "Więcej". Po kliknieciu na "Utwórz" powinna utworzyć się tabela z odpowiednimi headerami oraz wypełnionymi danymi z formularza. Na końcu każdej lini powinien być button "Usuń" który usuwa daną linijkę.
 
-
 #### Zadanie 10
 
-Na podstawie powyższego zadania stwórz funkcję która sprawdzi wszystkie stringi wpisane i zamieni pierwsze ich litery na duże. 
+Na podstawie powyższego zadania stwórz funkcję która sprawdzi wszystkie stringi wpisane i zamieni pierwsze ich litery na duże.
 
 #### Zadanie 11
 
@@ -67,13 +66,13 @@ Stwórz funkcję która przyjmuje dowolnego stringa. Następnie Wrzuć tego stri
 
 Stwórz funkcję która przyjmie tablicę stringów. Funkcja ma zwrócić nową tablicę z ilością liter w strinach. Druga funkcja ma zsumować wszystkie liczby z tablicy i zwrócić wynik. Trzecia funkcja ma wyciągnąć średnią z liczb i zwrócić wynik.
 
-#### Zadanie 14 
+#### Zadanie 14
 
 Stwórz obiekt z 3 polami:
 {
-    name: '',
-    surname: '',
-    age: ''
+name: '',
+surname: '',
+age: ''
 }
 
 Następnie stwóz funkcję (nie metodę) która przypisuje nowe wartości do tych pól oraz tworzy nowe pola z długością stringów. Jeśli któyś ze stringów będzie dłuższy niż 5 to stwórz w html button po kliknięciu którego cały obiekt wróci do stanu początkowego.
