@@ -528,3 +528,42 @@ var resulst = letters(data);
 console.log(resulst);
 console.log(sum(resulst));
 console.log(average(resulst));
+
+//zad 14 /////////////////////////////////////////////////////////////////////////
+
+var newObjct = {
+    name : '',
+    surname : '',
+    age: ''
+}
+
+function newValue(pName , pSurname , pAge){
+    newObjct.name = pName;
+    newObjct.surname = pSurname;
+    newObjct.age = pAge;
+    newObjct.lengthName = newObjct.name.length;
+    newObjct.lengthSurname = newObjct.surname.length;
+    newObjct.lengthAge = newObjct.age.length;
+    if(newObjct.lengthName > 5 || newObjct.lengthSurname > 5 || newObjct.lengthAge > 5){
+        var button = document.createElement('button');
+        document.body.appendChild(button);
+        button.innerText= "INITIAL STATE"
+        button.setAttribute("onClick","initialObjctState();")
+        initialObjctState = () => {
+            newObjct.name = '';
+            newObjct.surname = '';
+            newObjct.age = '';
+            newObjct.lengthName = newObjct.name.length;
+            newObjct.lengthSurname = newObjct.surname.length;
+            newObjct.lengthAge = newObjct.age.length;
+            console.log("////AFTER BUTTON CLICK ")
+            console.log(newObjct)
+        }
+
+    }
+}
+console.log("////FIRST STATE ")
+console.log(newObjct)
+newValue("JAN","AHONEN","23")
+console.log("////AFTER FUNCTION USE, BEFORE LENGTH CHECK ")
+console.log(newObjct)
